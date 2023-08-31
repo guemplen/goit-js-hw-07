@@ -27,6 +27,19 @@ gallery.addEventListener('click', event => {
   event.preventDefault();
   if (event.target.classList.contains('gallery__image')) {
     const largeImage = event.target.getAttribute('data-source');
-    //console.log(largeImage);
+    modalShow(largeImage);
   }
 });
+
+function modalShow(largeSrc) {
+  let modalState = basicLightbox.create(
+    `<img src="${largeSrc}" width="800" height="600">`
+  );
+  modalState.show();
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && modalState) {
+      modalState.close();
+      document.removeEventListener('keydown', modalShow);
+    }
+  });
+}
