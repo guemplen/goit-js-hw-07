@@ -23,10 +23,8 @@ const lightbox = new SimpleLightbox('.gallery a', {
   navigation: true,
   animationSlide: true,
   animationSpeed: 150,
-  captions: true,
   captionsData: 'alt',
   captionDelay: 250,
   close: true,
-  showCounter: true,
   swipeClose: true,
 });
